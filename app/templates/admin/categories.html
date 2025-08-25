@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Categories</h2>
+<a href="{{ url_for('admin.add_category') }}" class="btn btn-primary mb-3">Add New Category</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Products Count</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+        <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ category.products|length }}</td>
+            <td>
+                <a href="{{ url_for('admin.edit_category', category_id=category.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{{ url_for('admin.delete_category', category_id=category.id) }}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

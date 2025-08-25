@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Admin Dashboard</h2>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Products</h5>
+                <p class="card-text">{{ product_count }}</p>
+                <a href="{{ url_for('admin.manage_products') }}" class="btn btn-light btn-sm">View Products</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Users</h5>
+                <p class="card-text">{{ user_count }}</p>
+                <a href="{{ url_for('admin.manage_users') }}" class="btn btn-light btn-sm">View Users</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Orders</h5>
+                <p class="card-text">{{ order_count }}</p>
+                <a href="{{ url_for('admin.manage_orders') }}" class="btn btn-light btn-sm">View Orders</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Categories</h5>
+                <p class="card-text">{{ category_count }}</p>
+                <a href="{{ url_for('admin.manage_categories') }}" class="btn btn-light btn-sm">View Categories</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

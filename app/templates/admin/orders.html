@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Orders</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.user.username }}</td>
+            <td>${{ order.total_amount }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.date_created.strftime('%Y-%m-%d') }}</td>
+            <td>
+                <a href="{{ url_for('admin.view_order', order_id=order.id) }}" class="btn btn-sm btn-info">View</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
